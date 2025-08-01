@@ -1,0 +1,5 @@
+Light #e8e5d5
+Accent #ff8c00
+Dark #101010
+Dark light #292929
+Warning #bf1a2f
