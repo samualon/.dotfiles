@@ -1,0 +1,31 @@
+{
+    "layer": "top",
+		"height": 42,
+		"margin-top": 8,
+		"margin-left": 8,
+		"margin-right": 8,
+		"margin-bottom": 2,
+		"spacing": 32,
+    "modules-left": ["hyprland/mode", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio/slider", "network", "hyprland/language", "battery", "clock"],
+    "hyprland/window": {
+        "max-length": 50
+    },
+"network": {
+    "interface": "wlo2",
+    "format-wifi": "{bandwidthDownBits} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+},
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+		"clock": {
+				"format-alt": "{:%a, %d. %b  %H:%M}"
+		}
+}
