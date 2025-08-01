@@ -53,7 +53,7 @@ output eDP-1 resolution 1920x1080 position 1920,0
    }
 #
    input type:keyboard {
-       xkb_layout "be"
+       xkb_layout "be","us"
        xkb_options keypad:enter_as_return
    }
 #
