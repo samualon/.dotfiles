@@ -12,6 +12,9 @@
     "hyprland/window": {
         "max-length": 50
     },
+		"hyprland/language": {
+        "max-length": 8
+    },
 "network": {
     "interface": "wlo2",
     "format-wifi": "{bandwidthDownBits} ",
