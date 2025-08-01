@@ -64,7 +64,7 @@ output eDP-1 resolution 1920x1080 position 1920,0
 gaps inner 8px
 gaps outer 8px
 
-default_border pixel 2px
+default_border pixel 3px
 default_floating_border pixel 3px
 
 # Colors
