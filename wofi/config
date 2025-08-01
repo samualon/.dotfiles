@@ -1,0 +1,4 @@
+show=drun
+term=kitty
+prompt=Search anything...
+insensitive=true
