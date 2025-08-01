@@ -64,7 +64,7 @@ window#waybar {
 
 #pulseaudio-slider trough {
 	background-color: #101010;
-	border: solid #E3E1C9 1px;
+	border: solid #ff8c00 1px;
 }
 
 #pulseaudio-slider trough,
