@@ -1,39 +1,100 @@
-(defwindow bar
-  :monitor 0
-  :anchor "top center"
-  :stacking "fg"
-  :exclusive true
-  :focusable false
-  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "30px")
-  (box
-    :class "bar"
-    :orientation "h"
-    :space-evenly false
-    :halign "fill"
-    :valign "center"
-    (label :class "workspaces" :text "WS")
-    (box :hexpand true) ;; spacer
-    (label :class "clock" :text (time "%H:%M"))
-  )
-)
-
 (defwindow desktopWidget
-	:monitor 0
-	:geometry (geometry
-		:x "0%"
-		:y "50%"
-		:width "536px"
-		:height "700px"
-		:anchor "left center")
-	:stacking "bg"
-	:exclusive false
-	:focusable "none"
-	(computer))
+  :monitor 0
+  :geometry (geometry
+    :x "8px"
+    :y "50%"
+		:height "650px"
+    :width "536px"
+    :anchor "left center")
+  :stacking "bg"
+  :exclusive false
+  :focusable "ondemand"
+  (test))
 
-(defwidget computer []
-	(box
+(defwidget test []
+  (box
 		:orientation "vertical"
-		:hallign "center"
-		"Aether"
-		(button
-			:onclick "chromium")))
+		:space-evenly false
+    (box
+      :class "terminal"
+			:height "550"
+			:orientation "vertical"
+			:space-evenly "false"
+			:spacing 16
+      		(box 
+				:class "title"
+				:valign "start"
+				:halign "center"
+				:width "450"
+				"Aether"	
+			)
+			(box :class "perf_data_box"
+				:halign "center"
+				:width "450"
+				(box :class "perf_data"
+					:halign "center"
+					:space-evenly "false"
+					:orientation "horizontal"
+"CPU temp:	${EWW_TEMPS.CORETEMP_CORE_0}°C	WiFi temp:	${EWW_TEMPS.IWLWIFI_1_TEMP1}°C
+
+CORE 1:		${EWW_CPU.cores[0].usage}%	CORE 2:		${EWW_CPU.cores[1].usage}%
+CORE 3:		${EWW_CPU.cores[2].usage}%	CORE 4:		${EWW_CPU.cores[3].usage}%
+
+Memory:				${formatbytes(EWW_RAM.total_mem - EWW_RAM.free_mem, true, "si")} / ${formatbytes(EWW_RAM.total_mem, true, "si")}
+SWAP:				${formatbytes(EWW_RAM.total_swap - EWW_RAM.free_swap, true, "si")} / ${formatbytes(EWW_RAM.total_swap, true, "si")}
+DISK:				${formatbytes(EWW_DISK["/"].used, true, "si")} / ${formatbytes(EWW_DISK["/"].total, true, "si")}
+				")
+			)
+			(scroll
+				:vscroll true
+				:height "160"
+				(box 
+					:orientation "vertical"
+					:class "rss_box"
+					(for entry in arch_rss
+						(rss_entry
+							:headline "${entry[0]}"
+							:link "${entry[1]}"))))
+			(box :class "input_box"
+				:orientation "horizontal"
+				:space-evenly "false"
+				:halign "center"
+				:valign "center"
+				"> "
+				(input
+					:value input_text
+					:class "input_field"
+					:halign "center"
+					:valign "end"
+					:height "30"
+					:width "400"
+					:onaccept "eww update input_text='' | {}")
+			)
+		)
+    (box
+      :class "button_row"
+			:height "100"
+      {EWW_RAM.total_mem})))
+
+(defvar input_text "")
+
+(defpoll arch_rss
+	:interval "5m"
+	"python ~/.config/eww/arch_rss.py")
+
+(defwidget rss_entry [headline link]
+	(box
+		:width "420"
+		:halign "center"
+		(box :class "rss_line"
+			:halign "start"
+			(eventbox
+				:class "rss_link"
+				:cursor "pointer"
+				:onclick "chromium ${link}"
+				:tooltip "${headline}"
+				(label
+					:height "42"
+					:limit-width 46
+					:wrap true
+					:text "- ${headline}")))))

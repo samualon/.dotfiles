@@ -1,0 +1,55 @@
+.desktopWidget {
+	border-radius: 12px;
+	border: solid #e8e5d5 4px;
+	background-color: #e8e5d5;
+}
+
+.terminal {
+	font-family: "VT323";
+	font-size: 22;
+	color: #ff8c00;
+	border-radius: 12px;
+	background: repeating-linear-gradient(#000 1px, #101010 2px, #202020 3px);
+	background-size: cover;
+  background-size: 100% 1px;
+	box-shadow: 0px 0px 4px 4px rgba(100,100,100,0.60) inset;
+}
+
+.terminal .title {
+	margin-top: 24px;
+	font-size: 42;
+	color: #101010;
+	border-bottom: dotted #FF8C00 2px;
+	border-right: dotted #FF8C00 2px;
+	background: repeating-linear-gradient(#DF6C00 1px, #EF7C00 2px, #FF8C00 3px);
+  background-size: cover;
+  background-size: 100% 1px;
+}
+
+.perf_data {
+	border-bottom: dotted #FF8C00 3px;
+}
+
+.input_field {
+	background: none;
+	border: none;
+	color: #FF8C00;
+	border-bottom: solid #FF8C00 1px;
+	border-radius: 0;
+}
+
+.input_field:focused {
+	box-shadow: none;
+}
+
+.rss_entry {
+	background-color: yellow;
+}
+
+.rss_link {
+	border-bottom: solid rgba(255, 140, 0, 0.25) 2px;
+}
+
+.rss_link:hover{
+	border-bottom: solid rgba(255, 140, 0, 1) 1px;
+}
