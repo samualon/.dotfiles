@@ -1,0 +1,11 @@
+[Unit]
+Description=Run package list backup weekly
+
+[Timer]
+OnCalendar=Mon
+OnCalendar=Thu
+OnCalendar=Sun
+Persistent=true
+
+[Install]
+WantedBy=timers.target

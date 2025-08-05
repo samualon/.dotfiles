@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup packages list to file in .config
+
+[Service]
+Type=oneshot
+ExecStart=/home/Samuel/.config/backup-packages.sh
