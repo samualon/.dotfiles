@@ -74,7 +74,52 @@ DISK:				${formatbytes(EWW_DISK["/"].used, true, "si")} / ${formatbytes(EWW_DISK
     (box
       :class "button_row"
 			:height "100"
-      {EWW_RAM.total_mem})))
+			:orientation "horizontal"
+			:halign "center"
+			:valign "center"
+			:space-evenly false
+			:spacing 16
+				(button
+					:class "control_button"
+					:valign "center"
+					:halign "start"
+					:width "50"
+					:height "50"
+					:onclick "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
+					"-")
+				(button
+					:class "control_button"
+					:valign "center"
+					:halign "start"
+					:width "50"
+					:height "50"
+					:onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
+					"+")
+				(button
+					:class "shutdown_button"
+					:valign "center"
+					:halign "start"
+					:width "80"
+					:height "80"
+					:onclick "shutdown now"
+					"⏻")
+				(button
+					:class "control_button"
+					:valign "center"
+					:halign "start"
+					:width "50"
+					:height "50"
+					:onclick "brightnessctl -e4 -n2 set 10%-"
+					"☀-")
+				(button
+					:class "control_button"
+					:valign "center"
+					:halign "start"
+					:width "50"
+					:height "50"
+					:onclick "brightnessctl -e4 -n2 set 10%+"
+					"☀+")
+				)))
 
 (defvar input_text "")
 

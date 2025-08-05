@@ -1,7 +1,12 @@
+* {
+	all: unset;
+}
+
 .desktopWidget {
 	border-radius: 12px;
-	border: solid #e8e5d5 4px;
+	border: solid  #dbd6bd 4px;
 	background-color: #e8e5d5;
+	box-shadow: rgba(0,0,0,0.15) 0px -4px 4px 4px inset;
 }
 
 .terminal {
@@ -52,4 +57,35 @@
 
 .rss_link:hover{
 	border-bottom: solid rgba(255, 140, 0, 1) 1px;
+}
+
+.shutdown_button {
+	font-size: 38px;
+  background-image: radial-gradient(#F8F7F2 25%, #dbd6bd 90%);
+  border-color: #dbd6bd;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 100%;
+  box-shadow: rgba(0,0,0,0.5) 0px -4px 2px 2px inset;
+  color: rgba(0,0,0,0.5);
+}
+
+.shutdown_button:active {
+	font-size: 36px;
+  box-shadow: rgba(0,0,0,0.5) 0px 0px 2px 2px inset;
+}
+.control_button {
+	font-size: 16px;
+  background-image: radial-gradient(#F8F7F2 25%, #dbd6bd 90%);
+  border-color: #dbd6bd;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 100%;
+  box-shadow: rgba(0,0,0,0.5) 0px -4px 2px 2px inset;
+  color: rgba(0,0,0,0.5);
+}
+
+.control_button:active {
+	font-size: 14px;
+  box-shadow: rgba(0,0,0,0.5) 0px 0px 2px 2px inset;
 }
