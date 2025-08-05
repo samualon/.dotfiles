@@ -91,7 +91,7 @@ DISK:				${formatbytes(EWW_DISK["/"].used, true, "si")} / ${formatbytes(EWW_DISK
 			(eventbox
 				:class "rss_link"
 				:cursor "pointer"
-				:onclick "chromium ${link}"
+				:onclick "chromium ${link} &"
 				:tooltip "${headline}"
 				(label
 					:height "42"
