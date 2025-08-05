@@ -26,7 +26,7 @@
 				:valign "start"
 				:halign "center"
 				:width "450"
-				"Aether"	
+				"Aether (${startup_time})"	
 			)
 			(box :class "perf_data_box"
 				:halign "center"
@@ -122,6 +122,10 @@ DISK:				${formatbytes(EWW_DISK["/"].used, true, "si")} / ${formatbytes(EWW_DISK
 				)))
 
 (defvar input_text "")
+
+(defpoll startup_time
+	:interval "1h"
+	"~/.config/eww/startup_time.sh")
 
 (defpoll arch_rss
 	:interval "5m"
